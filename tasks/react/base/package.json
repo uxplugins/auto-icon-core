@@ -1,0 +1,16 @@
+{
+    "name": "auto-icon",
+    "version": "1.0.0",
+    "description": "Most Popular svg icon hubs",
+    "author": "uxplugins",
+    "license": "MIT",
+    "main": "lib",
+    "sideEffects": false,
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/uxplugins/auto-icon-core.git"
+    },
+    "peerDependencies": {
+      "react": "*"
+    }
+  }

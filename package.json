@@ -6,14 +6,15 @@
     "glob-promise": "^4.2.2",
     "perf_hooks": "^0.0.1",
     "react": "^17.0.2",
-    "svgo": "^2.8.0",
-    "svgson": "^5.2.1"
+    "svgo": "^2.8.0"
   },
   "name": "auto-icon-react",
   "description": "",
   "version": "1.0.0",
   "main": "index.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
