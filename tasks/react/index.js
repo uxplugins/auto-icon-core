@@ -53,7 +53,7 @@ const exportPack = async (pack) => {
                 "utf8"
             );
 
-            const modRes = template(svgStr, name, "common", exists.size == 1);
+            const modRes = template(svgStr, name, "esm", exists.size == 1);
             await fs.appendFile(
                 path.resolve(REACT_DIR, pack.id, "index.esm.js"),
                 modRes,
