@@ -8,6 +8,7 @@ const { packs } = require('./../../assets');
 const { optimizeSvg } = require('../../utils.js/svgo');
 const { getPackIcons } = require('../../utils.js');
 const template = require('./template');
+var babel = require('gulp-babel');
 const copyBaseReactProject = (cb) => {
     fsx.ensureDirSync(REACT_DIR);
     const filesToMove = [
@@ -21,6 +22,12 @@ const copyBaseReactProject = (cb) => {
 const generateReactComponents = async (cb) => {
     for (const pack of packs) {
         await exportPack(pack);
+        const filesToMove = [
+            './tasks/react/packBase/**/*',
+        ];
+        src(filesToMove, { base: './tasks/react/packBase' })
+            .pipe(dest(path.join(REACT_DIR, pack.id)));
+        cb();
     }
     cb();
 }
@@ -65,4 +72,12 @@ const exportPack = async (pack) => {
     }
 }
 
-exports.buildReact = series(copyBaseReactProject, generateReactComponents);
+const transformJSX = () => {
+    return src('./exports/react/**/*.js', { base: './exports/react/' }).
+        pipe(babel({
+            plugins: ['transform-react-jsx']
+        })).
+        pipe(dest("./exports/react"));
+}
+
+exports.buildReact = series(copyBaseReactProject, generateReactComponents, transformJSX);

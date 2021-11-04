@@ -1,4 +1,4 @@
-export declare const Si1001Tracklists: IconType;
+import { IconType } from "../iconBase";export declare const Si1001Tracklists: IconType;
 export declare const Si1Password: IconType;
 export declare const Si3M: IconType;
 export declare const Si42: IconType;

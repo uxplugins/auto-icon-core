@@ -10,12 +10,16 @@ const template = (icon, formattedName, type = "module", addPreImports) => {
             );
         case "module":
             return (
+                (addPreImports ? `var React = require("react");\n` : "") +
                 `module.exports.${formattedName} = function ${formattedName} (props) {\n` +
                 `  return ${icon}\n` +
                 `};\n`
             );
         case "dts":
-            return `export declare const ${formattedName}: IconType;\n`;
+            return (
+                (addPreImports ? `import { IconType } from "../iconBase";` : "") +
+                `export declare const ${formattedName}: IconType;\n`
+                );
     }
 }
 

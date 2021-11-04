@@ -1,4 +1,4 @@
-export declare const ImHome: IconType;
+import { IconType } from "../iconBase";export declare const ImHome: IconType;
 export declare const ImHome2: IconType;
 export declare const ImHome3: IconType;
 export declare const ImOffice: IconType;
