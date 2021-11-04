@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <ImHome className="App-logo" alt="logo" />
+        <ImHome style className="App-logo" alt="logo" />
 
       </header>
     </div>
