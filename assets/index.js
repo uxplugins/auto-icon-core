@@ -11,7 +11,7 @@ module.exports = {
             projectUrl: "",
             license: "",
             licenseUrl: "",
-        },
+        }, 
         {
             id: "si",
             name: "Simple Icons",
