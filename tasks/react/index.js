@@ -4,7 +4,7 @@ const fs = require("fs").promises;
 const path = require('path');
 const camelCase = require("camelcase");
 const { REACT_DIR } = require('../../paths');
-const { packs } = require('./../../assets');
+const { packs } = require('../../../auto-icon-assets/assets');
 const { optimizeSvg } = require('../../utils.js/svgo');
 const { getPackIcons } = require('../../utils.js');
 const template = require('./template');
@@ -21,15 +21,19 @@ const copyBaseReactProject = (cb) => {
 
 }
 const generateReactComponents = async (cb) => {
-    for (const pack of packs) {
-        await exportPack(pack);
-        const filesToMove = [
-            './tasks/react/packBase/**/*',
-        ];
-        src(filesToMove, { base: './tasks/react/packBase' })
-            .pipe(dest(path.join(REACT_DIR, pack.id)));
-
-        log('Exported React '+ pack.name);
+    if(packs){
+        for (const pack of packs) {
+            await exportPack(pack);
+            const filesToMove = [
+                './tasks/react/packBase/**/*',
+            ];
+            src(filesToMove, { base: './tasks/react/packBase' })
+                .pipe(dest(path.join(REACT_DIR, pack.id)));
+    
+            log('Exported React '+ pack.name);
+        }
+    } else{
+        throw new Error('No Asset Folder Found')
     }
     cb();
 }

@@ -4,14 +4,10 @@
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "camelcase": "^6.2.0",
     "fancy-log": "^1.3.3",
-    "feather-icons": "^4.28.0",
     "fs-extra": "^10.0.0",
     "glob": "^7.2.0",
     "glob-promise": "^4.2.2",
     "gulp-babel": "^8.0.0",
-    "ionicons": "^4.4.4",
-    "ionicons-5": "npm:ionicons@5",
-    "octicons": "^8.5.0",
     "perf_hooks": "^0.0.1",
     "react": "^17.0.2",
     "svgo": "^2.8.0"
@@ -28,7 +24,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/uxplugins/auto-icon-core.git"
+    "url": "https://github.com/uxplugins/auto-icon-core.git"
   },
   "author": "",
   "license": "ISC",
