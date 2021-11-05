@@ -1,0 +1,51 @@
+[submodule "assets/fontawesome"]
+	path = assets/fontawesome
+	url = https://github.com/FortAwesome/Font-Awesome.git
+[submodule "assets/material-design-icons"]
+	path = assets/material-design-icons
+	url = https://github.com/google/material-design-icons.git
+[submodule "assets/typicons"]
+	path = assets/typicons
+	url = https://github.com/stephenhutchings/typicons.font.git
+[submodule "assets/game-icons-inverted"]
+	path = assets/game-icons-inverted
+	url = https://github.com/delacannon/game-icons-inverted.git
+[submodule "assets/weather-icons"]
+	path = assets/weather-icons
+	url = https://github.com/erikflowers/weather-icons.git
+[submodule "assets/devicons"]
+	path = assets/devicons
+	url = https://github.com/vorillaz/devicons.git
+[submodule "assets/ant-design-icons"]
+	path = assets/ant-design-icons
+	url = https://github.com/ant-design/ant-design-icons.git
+[submodule "assets/bootstrap"]
+	path = assets/bootstrap
+	url = https://github.com/twbs/icons.git
+[submodule "assets/RemixIcon"]
+	path = assets/RemixIcon
+	url = https://github.com/Remix-Design/RemixIcon.git
+[submodule "assets/grommet-icons"]
+	path = assets/grommet-icons
+	url = https://github.com/grommet/grommet-icons.git
+[submodule "assets/flat-color-icons"]
+	path = assets/flat-color-icons
+	url = https://github.com/icons8/flat-color-icons.git
+[submodule "assets/heroicons"]
+	path = assets/heroicons
+	url = https://github.com/tailwindlabs/heroicons
+[submodule "assets/simple-icons"]
+	path = assets/simple-icons
+	url = https://github.com/simple-icons/simple-icons
+[submodule "assets/icomoon-free"]
+	path = assets/icomoon-free
+	url = https://github.com/Keyamoon/IcoMoon-Free
+[submodule "assets/boxicons"]
+	path = assets/boxicons
+	url = https://github.com/atisawd/boxicons
+[submodule "assets/css.gg"]
+	path = assets/css.gg
+	url = https://github.com/astrit/css.gg
+[submodule "assets/vscode-icons"]
+	path = assets/vscode-icons
+	url = https://github.com/microsoft/vscode-codicons.git

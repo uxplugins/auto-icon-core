@@ -14,6 +14,10 @@ const svgoConfig = {
       active: true,
     },
     {
+      name: 'removeXMLNS',
+      active: true
+    },
+    {
       name: 'removeComments',
       active: true,
     },
@@ -139,7 +143,7 @@ const svgoConfig = {
     },
     {
       name: 'removeAttrs',
-      params: { attrs: ["data.*",'*:(stroke|fill):((?!^none$).)*', "svg:fill"] },
+      params: { attrs: ["data.*",'*:(stroke|fill):((?!^none$).)*', "svg:fill", "svg:xml.*"] },
       active:true
     },
     // {
