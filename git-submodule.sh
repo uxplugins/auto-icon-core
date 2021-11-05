@@ -2,7 +2,7 @@
 
 set -e
 
-git config -f .gitmodules --get-regexp '^submodule\..*\.path$' |
+git config -f .packs --get-regexp '^submodule\..*\.path$' |
     while read path_key path
     do
         url_key=$(echo $path_key | sed 's/\.path/.url/')
