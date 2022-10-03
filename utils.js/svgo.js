@@ -65,10 +65,7 @@ const svgoConfig = {
       name: 'cleanupEnableBackground',
       active: true,
     },
-    {
-      name: 'convertStyleToAttrs',
-      active: true,
-    },
+   
     {
       name: 'convertPathData',
       active: true,
@@ -146,6 +143,27 @@ const svgoConfig = {
       params: { attrs: ["data.*",'*:(stroke|fill):((?!^none$).)*', "svg:fill", "svg:xml.*"] },
       active:true
     },
+    {
+      name: 'inlineStyles',
+      params: { 
+        onlyMatchedOnce: false,
+       },
+      active:true
+    },
+    {
+      name: 'convertStyleToAttrs',
+      active: true,
+    },
+    // {
+    //   name: 'removeStyleElement',
+    //   active: true,
+    // },
+    {
+      name: 'removeScriptElement',
+      active: true,
+    },
+    
+
     // {
     //   name: 'convertColors',
     //   params: { currentColor: true },
@@ -155,7 +173,7 @@ const svgoConfig = {
 };
 
 const optimizeSvg = (svgStrRaw) => {
-  return svgo.optimize(svgStrRaw, svgoConfig).data;
+  return svgo.optimize(svgStrRaw, svgoConfig).data.replace(/xlink:href/ig,"xlinkHref").replace(/xml:space/ig,"xmlSpace");
 }
 module.exports = {
   optimizeSvg

@@ -1,9 +1,12 @@
 const { series } = require('gulp');
-const { cleanExportFolder } = require('./tasks/general');
+const { cleanExportFolder, generatePackagesManifest } = require('./tasks/general');
+const { buildRawJson } = require('./tasks/rawjson');
 const { buildReact } = require('./tasks/react');
 
 
 exports.default = series(
     cleanExportFolder,
-    buildReact
+    generatePackagesManifest,
+   buildReact,
+ // buildRawJson,
 );

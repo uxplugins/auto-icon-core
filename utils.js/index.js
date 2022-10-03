@@ -1,8 +1,6 @@
 const glob = require('glob-promise');
-async function getPackIcons(content) {
-    return typeof content.files === "string"
-    ? glob(content.files)
-    : content.files();
+async function getPackIcons(iconsPath) {
+    return glob(iconsPath+"/*.svg");
 }
 
 module.exports = {

@@ -17,7 +17,7 @@ const template = (icon, formattedName, type = "module", addPreImports) => {
             );
         case "dts":
             return (
-                (addPreImports ? `import { IconType } from "../iconBase";` : "") +
+                (addPreImports ? `import { IconType } from "../iconBase";\n` : "") +
                 `export declare const ${formattedName}: IconType;\n`
                 );
     }
