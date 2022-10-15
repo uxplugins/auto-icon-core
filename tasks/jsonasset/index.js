@@ -11,6 +11,11 @@ var babel = require('gulp-babel');
 var log = require('fancy-log');
 const ASSETS_DIR = "./../auto_icon_svg-png";
 const EXPORT_DIR = "./exports/jsonassets";
+const useSVG = true;
+
+// if true only get 6 items
+const compact = true;
+
 const generateJsonAssets = async (cb) => {
     fsx.ensureDirSync(EXPORT_DIR);
     let packs = fsx.readdirSync(ASSETS_DIR, { withFileTypes: true })
@@ -21,15 +26,22 @@ const generateJsonAssets = async (cb) => {
             return { ...data };
         });
     for (const pack of packs) {
-        const files = await getPackIcons( path.join(ASSETS_DIR, pack.name, "icons"));
+        let files = await getPackIcons( path.join(ASSETS_DIR, pack.name, "icons"));
+        pack.count = files.length;
+        if(compact) files = files.slice(0, 6);
         pack.items = files.map(t=>{
             let iconName =  path.basename(t, path.extname(t));
-            return {id: `${pack.name}/icons/${iconName}`, name: iconName, packId: pack.name}
+          //  return {id: `${pack.name}/icons/${iconName}`, name: iconName, packId: pack.name}
+           if(!useSVG) return {name: iconName, packId: pack.name}
+           else {
+            const contents = fsx.readFileSync(t, {encoding: 'base64'});
+            return {name: iconName, packId: pack.name, svg: contents}
+           }
         })
     
         log('Exported React ' + pack.name);
     }
-    fsx.writeFileSync(path.join(EXPORT_DIR, "data.json"), JSON.stringify(packs));
+    fsx.writeFileSync(path.join(EXPORT_DIR, "data.json"), JSON.stringify(packs, null, 0));
 
     // if (packs) {
     //     for (const pack of packs) {
