@@ -2,7 +2,8 @@ const fsx = require('fs-extra');
 const path = require('path');
 const { EXPORT_DIR } = require('../../paths');
 const ReactAssetsSource = "./tasks/react/base";
-const ASSETS_DIR = "./../auto_icon_svg-png";
+const ASSETS_DIR = "./../New Icons";
+const glob = require('glob-promise');
 const cleanExportFolder = (cb) => {
     fsx.ensureDirSync(EXPORT_DIR);
     fsx.emptyDirSync(EXPORT_DIR);
@@ -30,4 +31,14 @@ const generatePackagesManifest = (cb) => {
    
     cb()
 }
-module.exports = { cleanExportFolder,generatePackagesManifest }
+
+const checkMiss = async (cb) => {
+    const svgs = await (await glob(ASSETS_DIR+"/*/icons/*.svg")).map(t=>t.replace('.svg', ''));
+    const pngs =   await (await glob(ASSETS_DIR+"/*/icons/*.png")).map(t=>t.replace('.png', ''));;
+    console.log([
+          ...svgs.filter(d => !pngs.includes(d)),
+        ...pngs.filter(d => !svgs.includes(d))
+     ]);
+    cb();
+}
+module.exports = { cleanExportFolder,generatePackagesManifest, checkMiss }
