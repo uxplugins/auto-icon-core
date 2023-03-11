@@ -105,12 +105,15 @@ const exportPack = async (pack) => {
 }
 
 const transformJSX = () => {
-    return src('../auto_icon_react/**/*.js', { base: '../auto_icon_react' }).
+    return src('../iconsea_react/**/*.js', { base: '../iconsea_react' }).
         pipe(babel({
             plugins: ['transform-react-jsx']
         }))
-        .pipe(dest("../auto_icon_react"));
+        .pipe(dest("../iconsea_react"));
 }
 
-exports.buildReact = series(copyBaseReactProject, generateReactComponents, transformJSX);
+exports.buildReact = series(
+    copyBaseReactProject,
+ generateReactComponents,
+      transformJSX);
 //exports.buildReact = series( transformJSX);

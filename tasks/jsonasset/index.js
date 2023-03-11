@@ -112,6 +112,7 @@ const generateJsonAssets = async (cb) => {
         "utf8"
       );
       data = JSON.parse(data);
+      if(!data.license || !data.license.url || !data.author || !data.author.url) console.log('Invalid Pack ', data.name); 
       data.category = getCategory(data);
       // to fix names and titles problems
       //   data.name= p.name;

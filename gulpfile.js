@@ -6,10 +6,10 @@ const { buildReact } = require('./tasks/react');
 
 
 exports.default = series(
-  //  cleanExportFolder,
- //   generatePackagesManifest,
- //  buildReact,
+   cleanExportFolder,
+   generatePackagesManifest,
+   buildReact,
  // buildRawJson,
- generateJsonAssets,
+ //generateJsonAssets,
 // checkMiss
 );
