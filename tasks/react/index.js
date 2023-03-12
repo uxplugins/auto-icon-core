@@ -23,7 +23,7 @@ const copyBaseReactProject = (cb) => {
 }
 const generateReactComponents = async (cb) => {
     const packs = fsx.readdirSync(ASSETS_DIR, { withFileTypes: true })
-        .filter(dirent => dirent.isDirectory() && dirent.name != ".git" && dirent.name!== "rrze-icon-set (tango)" )
+        .filter(dirent => dirent.isDirectory() && dirent.name != ".git" && dirent.name!== "rrze-icon-set (tango)" && dirent.name=="Coco icon pack")
         .map(p => {
             let data = fsx.readFileSync(path.join(ASSETS_DIR, p.name, "info.json"), "utf8");
             data = JSON.parse(data);
@@ -67,11 +67,12 @@ const exportPack = async (pack) => {
         const rawName = path.basename(file, path.extname(file));
         let pascalName = camelCase(rawName, { pascalCase: true });
         // pascalName = pascalName.replace(/[\W_]+/g,"");
-        if (pascalName.match(/^\d/) || pascalName == "React") {
+        if (pascalName.match(/^\d/) || pascalName == "React" || pascalName.match(/\u200C/g)) {
             console.log('matched ' + pascalName);
             var matches = pack.name.match(/\b(\w)/g); // ['J','S','O','N']
             var acronym = matches.join('');
             pascalName = camelCase(acronym, { pascalCase: true }) + pascalName;
+            pascalName = pascalName.replace(/\u200C/g, '');
             console.log('changed to ' + pascalName)
         }
         const name = pascalName;
