@@ -1,7 +1,8 @@
 const template = (icon, multiColor, formattedName, type = "module", addPreImports) => {
 
     icon = icon.replace('<svg ', `<svg {...props} color={${!multiColor && ""}} stroke={${!multiColor && ""}} width={props.width || 48} fill="currentColor"  `)
-        .replace("color={}", "").replace('color=""', "").replace("stroke={}", "").replace('stroke=""', "")
+        .replace("color={}", "")
+        .replace("stroke={}", "")
 
     switch (type) {
         case "esm":

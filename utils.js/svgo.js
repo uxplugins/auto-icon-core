@@ -154,8 +154,9 @@ const svgoConfig = {
         // },
         {
             name: 'removeAttrs',
-            params: {attrs: ["data.*", ':(stroke|fill):((?!^(none|currentColor)$).)', "svg:fill", "svg:xml.*"]},
+            params: {attrs: ["data.*", "svg:fill", "svg:xml.*"]},
             active: true
+            // ':(stroke|fill):((?!^(none|currentColor)$).)',
         },
         // {
         //     name: 'removeAttrs',
@@ -210,6 +211,9 @@ const optimizeSvg = (svgStrRaw,isMultiColor) => {
         .replace(/i:extraneous/ig, "iExtraneous")
         .replace(/\[.*?\]|\<!\[CDATA\[[^\]]*\]\]>/g, "")
         .replace(/i:pgf/ig, "iPgf")
+        .replace(/stroke-linecap/ig, "strokeLinecap")
+        .replace(/stroke-linejoin/ig, "strokeLinejoin")
+        .replace(/fill-rule/ig, "fillRule")
 
     if (isMultiColor){
         svg
