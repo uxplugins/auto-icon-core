@@ -25,7 +25,6 @@ const copyBaseReactProject = (cb) => {
 const generateReactComponents = async (cb) => {
     const packs = fsx.readdirSync(ASSETS_DIR, {withFileTypes: true})
         .filter(dirent => dirent.isDirectory() && dirent.name != ".git" && dirent.name !== "rrze-icon-set (tango)")
-
         .map(p => {
             let data = fsx.readFileSync(path.join(ASSETS_DIR, p.name, "info.json"), "utf8")
             data = JSON.parse(data)

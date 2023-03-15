@@ -154,7 +154,7 @@ const svgoConfig = {
         // },
         {
             name: 'removeAttrs',
-            params: {attrs: ["data.*", "svg:fill", "svg:xml.*"]},
+            params: {attrs: ["data.*", ':(stroke|fill):((?!^(none|currentColor)$).)', "svg:fill", "svg:xml.*"]},
             active: true
             // ':(stroke|fill):((?!^(none|currentColor)$).)',
         },
